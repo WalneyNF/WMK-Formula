@@ -1,0 +1,9 @@
+<!doctype html><meta charset="utf-8"><script>
+'use strict';
+let seq=0;const pending=new Map();
+const wmk={sheet:{getCell:cell=>call('cell.get',{cell}),setCell:(cell,input)=>call('cell.set',{cell,input:String(input)}),getRange:range=>call('sheet.read',{range})}};
+function call(method,params){return new Promise((resolve,reject)=>{const id=++seq;pending.set(id,{resolve,reject});parent.postMessage({kind:'wmk-call',id,method,params},'*');});}
+const console={log:(...args)=>parent.postMessage({kind:'wmk-log',message:args.map(x=>typeof x==='object'?JSON.stringify(x):String(x)).join(' ')},'*')};
+addEventListener('message',async e=>{if(e.source!==parent)return;const m=e.data;if(m.kind==='wmk-result'){const p=pending.get(m.id);if(p){pending.delete(m.id);m.error?p.reject(new Error(m.error)):p.resolve(m.result);}return;}
+if(m.kind==='wmk-run'){try{const AsyncFunction=Object.getPrototypeOf(async function(){}).constructor;await new AsyncFunction('wmk','console',m.code)(wmk,console);parent.postMessage({kind:'wmk-done'},'*');}catch(err){parent.postMessage({kind:'wmk-error',message:String(err)},'*');}}});
+</script>

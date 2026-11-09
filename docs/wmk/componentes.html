@@ -1,0 +1,16 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Criando componentes — arquitetura proposta — Manuais WMK</title><link rel="stylesheet" href="manual.css"></head><body><header><img src="../assets/wmk-formula-logo.png" alt="WMK Formula"><div><strong>WMK Formula — Manuais</strong><small>Web Designer / Bridge · v0.5.2 · português (Brasil)</small></div></header><div class="layout"><nav aria-label="Índice de manuais"><a href="manual-completo.html">Manual completo</a><a href="inicio.html">Primeiro contato</a><a href="designer.html">Form Designer</a><a href="crud.html">CRUD e planilha</a><a href="javascript.html">Monaco e JavaScript</a><a href="componentes.html">Criando componentes</a><a href="plugins.html">Plugins, APIs e IA</a><a href="licenciamento.html">Licenças e créditos</a><a href="publicacao.html">Publicação no GitHub</a></nav><main><h1>Criando componentes — arquitetura proposta</h1><p>Esta seção documenta a <strong>proposta de extensão</strong> para o futuro WMK Component SDK. A v0.5.2 <strong>ainda não carrega plugins externos automaticamente</strong>.</p><h2>Objetivo</h2><p>Permitir criar controles novos com propriedades e eventos próprios, inclusive variantes baseadas em controles existentes. Preferimos composição e registro de metadados a exigir herança JavaScript irrestrita.</p><h2>Estrutura de exemplo</h2><pre><code>components/wmk-moeda/
+  component.json
+  index.js
+  style.css
+  README.md
+  tests/</code></pre><h2>Manifesto conceitual</h2><pre><code>{
+  "id": "wmk.moeda",
+  "name": "WMK Moeda",
+  "version": "0.1.0",
+  "base": "TextBox",
+  "properties": {
+    "currency": {"type": "string", "default": "BRL"},
+    "required": {"type": "boolean", "default": false}
+  },
+  "events": ["change", "validate"]
+}</code></pre><h2>Contrato proposto</h2><p>Os plugins deverão declarar <code>render()</code>, <code>getValue()</code>, <code>setValue()</code>, <code>validate()</code>, <code>serialize()</code> e <code>dispose()</code>. O Designer deverá mapear propriedades e eventos via schema e o runtime deverá aplicar permissões por extensão.</p><h2>Exercício prático para desenvolvedores</h2><ol><li>Copie o manifesto acima e altere o nome para WMKCEP.</li><li>Defina a propriedade <code>mask</code> e a validação de CEP.</li><li>Crie testes para entrada válida, entrada vazia e serialização.</li><li>Após o SDK existir, registre o componente na Widget Box; antes disso, o manifesto é apenas documentação de arquitetura.</li></ol><p class="note">Evite implementar componentes como scripts com acesso irrestrito ao token da Bridge. A arquitetura precisa de isolamento, validação, controle de permissões e revisão de código.</p></main></div><footer>© 2026 Walney Moreira Klein · walneyk@hotmail.com · Ver LICENSE e NOTICE · Créditos de terceiros preservados</footer></body></html>

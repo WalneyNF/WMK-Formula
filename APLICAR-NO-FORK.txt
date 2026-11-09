@@ -1,0 +1,23 @@
+WMK FORMULA — ATUALIZACAO DO FORK (DOCUMENTACAO + LOGO)
+
+Este ZIP foi preparado para ser COPIADO SOBRE A RAIZ DO REPOSITORIO DO FORK.
+Ele NAO foi enviado ao GitHub automaticamente.
+
+Arquivos importantes:
+  README.md                         <-- deve substituir o README.md DA RAIZ
+  assets/wmk/logo-oficial.png      <-- sua imagem original, sem substituicao
+  assets/wmk/paleta-oficial.png    <-- sua imagem original, sem substituicao
+  docs/wmk/                        <-- manuais HTML
+  wmk-web-studio/                  <-- fontes da Bridge e Web Designer
+
+Nao apague LICENSE-APACHE, LICENSE-MIT, NOTICE ou ATTRIBUTION.md
+que ja existem na raiz do fork do GridCraft.
+
+Se preferir publicar pelo navegador do GitHub:
+- Abra o fork e edite o README.md da RAIZ, substituindo o conteudo pelo deste pacote; clique Commit changes.
+- Depois envie as pastas assets/wmk, docs/wmk, wmk-web-studio, mantendo os caminhos. Clique Commit changes/Commit.
+- Atualize a pagina principal do repositorio. Confira logo, paleta e links.
+
+Para publicar por Git no clone local, copie estes arquivos sobre a raiz do repositorio,
+revise as diferencas e use git add, git commit e git push (na sua branch autorizada).
+Nao confunda preparar um ZIP com publicar online: so o push/commit confirma publicacao.

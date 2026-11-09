@@ -1,0 +1,22 @@
+WMK Formula Web Designer e WMK Bridge — componentes web do ecossistema WMK Formula.
+Copyright © 2026 Walney Moreira Klein.
+Contato: walneyk@hotmail.com
+
+Esta distribuição aplica a Apache License, Version 2.0, às contribuições originais WMK
+incluídas neste pacote, na medida em que os respectivos direitos pertençam ao
+licenciante. Consulte LICENSE.
+
+Os redistribuidores devem cumprir a seção 4 da Apache 2.0, incluindo a
+preservação de avisos aplicáveis e identificação das alterações em arquivos
+modificados. A licença não obriga a manter uma logo ou texto fixo na interface.
+
+O motor GridCraft/WMK Formula Rust NÃO está incluído neste pacote web. Ele deriva
+de trabalho do ArtCraft Team e colaboradores do GridCraft sob MIT OU Apache 2.0;
+consulte os avisos de origem preservados em licencas/ (para referência e
+preparação de pacotes separados do motor). Não atribuímos esse código original
+exclusivamente a WMK.
+
+Monaco Editor, quando carregado de CDN, é software independente licenciado por
+seus respectivos autores; esta distribuição não contém seus arquivos de fonte.
+Para uso e redistribuição de dependências adicionais, consulte as licenças
+aplicáveis e faça a auditoria do pacote de release.
